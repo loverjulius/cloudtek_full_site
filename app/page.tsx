@@ -222,6 +222,24 @@ function Contracts() {
 }
 
 function Contact() {
+// simple client-side submit handler to open the default mail app
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const company = String(data.get('company') || '').trim();
+    const message = String(data.get('message') || '').trim();
+
+    const to = 'hello@cloudtekcomputing.com';
+    const subject = encodeURIComponent(`Website inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section id="contact" className="section">
       <div className="container">
@@ -230,7 +248,7 @@ function Contact() {
             <h2 style={{fontSize:'28px',fontWeight:700}}>Let’s talk</h2>
             <p className="text-muted" style={{marginTop:6}}>Share your goals — we’ll respond within one business day.</p>
             <div style={{display:'grid',gap:'0.5rem',marginTop:'1rem',fontSize:'14px'}}>
-              <div style={{display:'flex',gap:8,alignItems:'center'}}><Phone size={16}/> (XXX) XXX‑XXXX</div>
+              <div style={{display:'flex',gap:8,alignItems:'center'}}><Phone size={16}/> (XXX) XXX-XXXX</div>
               <div style={{display:'flex',gap:8,alignItems:'center'}}><Mail size={16}/> hello@cloudtekcomputing.com</div>
               <div style={{display:'flex',gap:8,alignItems:'center'}}><MapPin size={16}/> Springfield, Virginia</div>
             </div>
@@ -238,14 +256,17 @@ function Contact() {
           <div className="card">
             <div className="card-header">Request a consultation</div>
             <div className="card-body">
-              <form action="mailto:hello@cloudtekcomputing.com" method="post" encType="text/plain" style={{display:'grid',gap:'0.6rem'}}>
+              {/* Note: no action/method; we use onSubmit */}
+              <form onSubmit={onSubmit} style={{display:'grid',gap:'0.6rem'}}>
                 <input className="btn" placeholder="Full name" name="name" required />
                 <input className="btn" type="email" placeholder="Work email" name="email" required />
                 <input className="btn" placeholder="Company / Agency" name="company" />
                 <textarea className="btn" placeholder="What problem are you trying to solve?" rows={4} name="message" required />
                 <button type="submit" className="btn btn-primary">Send</button>
               </form>
-              <p className="text-muted" style={{marginTop:'0.5rem',fontSize:'12px'}}>Replace the mailto: with a form service (e.g., Formspree) when ready.</p>
+              <p className="text-muted" style={{marginTop:'0.5rem',fontSize:'12px'}}>
+                This opens your email app with the message prefilled.
+              </p>
             </div>
           </div>
         </div>
