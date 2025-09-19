@@ -1,15 +1,20 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import './globals.css';
+import Header from './components/Header';   // or './components/Header' if components/ is inside app/
+import Footer from './components/Footer';   // adjust path to match your folder structure
 
-export const metadata: Metadata = {
-  title: "Cloud Tek Computing LLC",
-  description: "Modernize critical systems. Deliver mission results.",
+export const metadata = {
+  title: 'Cloud Tek Computing LLC',
+  description: 'Modernize critical systems. Deliver mission results.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
