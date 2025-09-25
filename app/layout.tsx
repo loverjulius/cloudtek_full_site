@@ -1,6 +1,14 @@
+// app/layout.tsx
 import './globals.css';
-import Header from './components/Header';   // or './components/Header' if components/ is inside app/
-import Footer from './components/Footer';   // adjust path to match your folder structure
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata = {
   title: 'Cloud Tek Computing LLC',
@@ -10,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.variable}>
         <Header />
         {children}
         <Footer />
