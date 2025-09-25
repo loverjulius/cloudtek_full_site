@@ -9,7 +9,7 @@ return (
 <div className={`${styles.container} ${styles.center}`}>
 <p className={styles.eyebrow}>Careers at Cloud Tek Computing</p>
 <h1 className={styles.headline}>
-Discover your future at Cloud Tek Computing — where innovation meets opportunity.
+Discover your future at Cloud Tek Computing - where innovation meets opportunity
 </h1>
 <p className={styles.lede}>
 At <strong>Cloud Tek Computing</strong>, we are dedicated to building an inclusive and empowering workplace. As an
