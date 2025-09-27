@@ -1,116 +1,123 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import styles from "./Header.module.css";
 
 const nav = [
-  { href: '/about', label: 'About Us' },
-  { href: '/services', label: 'Services' },
-  { href: '/clients', label: 'Clients' },
-  { href: '/careers', label: 'Careers' },
-  { href: '/contact', label: 'Contact Us' },
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services" },
+  { href: "/clients", label: "Clients" },
+  { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Contact Us" },
 ] as const;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-
-  // Close menu when route changes
+  // Close on route change
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  // Close on Escape and on outside click
+  // Lock body scroll & focus the close button when opening
   useEffect(() => {
-    if (!open) return;
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-
-    const onClick = (e: MouseEvent) => {
-      const t = e.target as Node;
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(t) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(t)
-      ) {
-        setOpen(false);
-      }
-    };
-
-    window.addEventListener('keydown', onKey);
-    window.addEventListener('click', onClick);
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      window.removeEventListener('click', onClick);
-    };
+    const { body } = document;
+    if (open) {
+      const prevOverflow = body.style.overflow;
+      body.style.overflow = "hidden";
+      closeBtnRef.current?.focus();
+      return () => { body.style.overflow = prevOverflow; };
+    }
   }, [open]);
 
+  // Escape key closes
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
-    <header className="nav" style={{ background: 'rgba(255,255,255,.8)' }}>
-      <div className="container nav-inner">
-        {/* Logo / brand */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '.6rem', textDecoration: 'none' }}>
-          <div style={{ height: 36, width: 36, borderRadius: 16, background: 'linear-gradient(135deg,#38bdf8,#6366f1)' }} />
-          <span style={{ fontWeight: 700, whiteSpace: 'nowrap', color: '#0f172a' }}>
-            Cloud Tek <span style={{ color: '#4f46e5' }}>Computing</span> LLC
-          </span>
+    <header className={styles.header}>
+      <div className={styles.bar}>
+        <Link href="/" className={styles.logo}>
+          Cloud Tek Computing
         </Link>
 
-        {/* Desktop nav (visibility controlled purely by CSS media queries) */}
-        <nav className="desktop-nav" style={{ gap: '2rem', alignItems: 'center' }}>
-          {nav.map(n => (
-            <Link key={n.href} href={n.href} className="btn" style={{ textDecoration: 'none' }}>
-              {n.label}
-            </Link>
-          ))}
+        {/* Desktop nav */}
+        <nav className={styles.desktopNav} aria-label="Primary">
+          <ul className={styles.listRow}>
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`${styles.link} ${pathname === item.href ? styles.active : ""}`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        {/* Mobile hamburger (hidden on desktop via CSS) */}
+        {/* Mobile toggle */}
         <button
-          ref={buttonRef}
-          onClick={() => setOpen(v => !v)}
-          className="mobile-menu-btn"
-          aria-label="Toggle menu"
+          className={styles.mobileToggle}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          type="button"
-          title="Menu"
+          aria-label="Open menu"
+          onClick={() => setOpen(true)}
         >
-          {/* Simple hamburger icon (accessible) */}
-          <span aria-hidden="true" style={{ display: 'inline-flex', flexDirection: 'column', gap: 4 }}>
-            <span style={{ width: 20, height: 2, background: '#0f172a', display: 'block' }} />
-            <span style={{ width: 20, height: 2, background: '#0f172a', display: 'block' }} />
-            <span style={{ width: 20, height: 2, background: '#0f172a', display: 'block' }} />
-          </span>
+          <span className={styles.burgerLine} />
+          <span className={styles.burgerLine} />
+          <span className={styles.burgerLine} />
         </button>
       </div>
 
-      {/* Mobile dropdown (hidden by default; shown when .open is added) */}
+      {/* Scrim (click to close) */}
       <div
+        className={`${styles.scrim} ${open ? styles.show : ""}`}
+        onClick={() => setOpen(false)}
+        aria-hidden={!open}
+      />
+
+      {/* Mobile drawer */}
+      <aside
         id="mobile-menu"
-        ref={menuRef}
-        className={`container mobile-menu ${open ? 'open' : ''}`}
-        style={{ paddingBottom: '.75rem' }}
+        role="dialog"
+        aria-modal="true"
+        className={`${styles.drawer} ${open ? styles.open : ""}`}
       >
-        <div className="grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '.5rem' }}>
-          {nav.map(n => (
-            <Link
-              key={n.href}
-              href={n.href}
-              className="btn"
-              style={{ textAlign: 'left' }}
-              onClick={() => setOpen(false)}
-            >
-              {n.label}
-            </Link>
-          ))}
+        <div className={styles.drawerHeader}>
+          <span className={styles.drawerTitle}>Menu</span>
+          <button
+            ref={closeBtnRef}
+            className={styles.closeBtn}
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+          >
+            ✕
+          </button>
         </div>
-      </div>
+
+        <nav aria-label="Mobile">
+          <ul className={styles.listCol}>
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`${styles.mLink} ${pathname === item.href ? styles.active : ""}`}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
     </header>
   );
 }
