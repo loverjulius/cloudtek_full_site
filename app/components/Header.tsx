@@ -84,40 +84,44 @@ export default function Header() {
       />
 
       {/* Mobile drawer */}
-      <aside
-        id="mobile-menu"
-        role="dialog"
-        aria-modal="true"
-        className={`${styles.drawer} ${open ? styles.open : ""}`}
+ <aside
+  id="mobile-menu"
+  role="dialog"
+  aria-modal="true"
+  className={`${styles.drawer} ${open ? styles.open : ""}`}
+>
+  {/* NEW: white surface that fills the drawer */}
+  <div className={styles.drawerSurface}>
+    <div className={styles.drawerHeader}>
+      <span className={styles.drawerTitle}>Menu</span>
+      <button
+        ref={closeBtnRef}
+        className={styles.closeBtn}
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
       >
-        <div className={styles.drawerHeader}>
-          <span className={styles.drawerTitle}>Menu</span>
-          <button
-            ref={closeBtnRef}
-            className={styles.closeBtn}
-            aria-label="Close menu"
-            onClick={() => setOpen(false)}
-          >
-            ✕
-          </button>
-        </div>
+        ✕
+      </button>
+    </div>
 
-        <nav aria-label="Mobile">
-          <ul className={styles.listCol}>
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`${styles.mLink} ${pathname === item.href ? styles.active : ""}`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
+    <nav aria-label="Mobile">
+      <ul className={styles.listCol}>
+        {nav.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className={`${styles.mLink} ${pathname === item.href ? styles.active : ""}`}
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</aside>
+
     </header>
   );
 }
