@@ -14,11 +14,17 @@ background: linear-gradient(var(--bg0), #ffffff);
 color: var(--ink);
 }
 
-
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .center { text-align: center; }
 .eyebrow { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--brand); margin: 0; }
-.headline { margin: 8px 0 12px; font-size: clamp(28px,4vw,44px); line-height: 1.15; font-weight: 800; }
+.headline { margin: 20px 0 50x; font-size: clamp(28px,4vw,44px); line-height: 1.15; font-weight: 800; }
+.heroTextBlock { 
+    max-width: 750px;
+  margin: 0 auto;          /* centers it */
+  display: grid;
+  gap: 2rem;               /* vertical space between paragraphs */
+  margin-top: 2rem;        /* space above the block (below the headline) */
+}
 .hero { padding: 56px 0 64px; }
 .lede { max-width: 860px; margin: 10px auto 0; font-size: 18px; line-height: 1.6; color: #334155; }
 .ctaRow { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }

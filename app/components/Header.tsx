@@ -42,8 +42,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.bar}>
+        
         <Link href="/" className={styles.logo}>
-          Cloud Tek Computing
+                  Cloud Tek Computing
         </Link>
 
         {/* Desktop nav */}

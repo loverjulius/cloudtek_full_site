@@ -11,15 +11,17 @@ function Hero() {
         <div className="grid grid-2" style={{alignItems:'center',gap:'2rem'}}>
           <div>
             <span className="badge"><BadgeCheck size={16}/> Virginia-based, Woman-Owned Small Business</span>
-            <h1 style={{marginTop:'0.75rem',fontSize:'clamp(28px,4vw,44px)',fontWeight:700}}>Modernize critical systems. Deliver mission results.</h1>
+            <h1 style={{marginTop:'0.75rem',fontSize:'clamp(28px,4vw,44px)',fontWeight:700}}>Modernize Critical Systems. Deliver Mission Results.</h1>
             <p className="text-muted" style={{marginTop:'0.75rem',fontSize:'18px',lineHeight:1.6}}>
-              Cloud Tek Computing helps U.S. federal programs—especially revenue and public-facing missions—move from legacy platforms
-              to secure, cloud-native architectures. We pair deep mainframe expertise with hands-on AWS engineering to ship outcomes
-              that withstand filing seasons, audits, and scale.
+              Cloud Tek Computing helps U.S. federal programs, especially revenue and public-facing missions—
+              transition from legacy platforms to secure, cloud-native architectures. We pair decades of enterprise
+              production-support expertise with modern AWS cloud engineering to ensure resilient, high-performing
+              systems that scale.
             </p>
             <div style={{display:'flex',gap:'0.75rem',marginTop:'1rem'}}>
               <Link href="/contact" className="btn btn-primary">Start a conversation</Link>
-              <Link href="/services" className="btn">Explore services</Link>
+              
+              <Link href="/services" className="btn btn-primary">Explore services</Link>
             </div>
             <ul style={{display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',gap:'0.5rem',marginTop:'1rem',fontSize:'14px'}} className="text-muted">
               {["Mainframe → Java on AWS EKS","Event-Driven (Kafka/MSK)","MongoDB & DynamoDB"].map(t => (

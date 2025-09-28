@@ -1,62 +1,56 @@
-// app/about/page.tsx
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <main>
-
-      {/* Hero / Intro (like Sparksoft’s About hero) */}
-      <section className="section" style={{background:'#f8fafc', padding:'3.5rem 0'}}>
-        <div className="container" style={{display:'grid', gap:'1rem', maxWidth:900}}>
-                    <h1 style={{fontSize:'clamp(28px,4vw,44px)', fontWeight:700}}>About Cloud Tek Computing LLC</h1>
-          <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
-            We modernize mission-critical federal systems — pairing deep mainframe knowledge with hands-on AWS delivery to
-            move from legacy platforms to secure, event-driven, cloud-native architectures.
-          </p>
+      {/* About Us */}
+      <section className="section band">
+        <div className="container">
+          <div className="content-narrow">
+            <h1 style={{fontSize:'clamp(28px,4vw,44px)', fontWeight:700}}>About Us</h1>
+            <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
+              <strong>Cloud Tek Computing LLC</strong> is a Virginia-based, Woman-Owned Small Business (WOSB) dedicated 
+              to helping U.S. federal agencies and mission-driven organizations modernize their IT 
+              environments and deliver measurable results.
+            </p>
+            <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
+              We combine technical expertise, industry experience, and business knowledge to assess critical 
+              challenges and devise effective solutions that can be implemented swiftly and cost-effectively.
+            </p>
+            <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
+              We are committed to consulting, educating, and collaborating with our clients to find the right IT
+              solutions and services that support their strategic, technical, and organizational goals.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Who we are (longer copy block) */}
-      <section className="section">
-        <div className="container" style={{display:'grid', gap:'1rem', maxWidth:900}}>
-          <h2 style={{fontSize:28, fontWeight:700}}>Who we are</h2>
-          <p className="text-muted" style={{lineHeight:1.7}}>
-            Cloud Tek Computing LLC is a Virginia-based, woman-owned small business focused on results:
-            resilient platforms, audit-ready delivery, and measurable outcomes for high-visibility programs.
-            Our teams bring 19+ years of federal experience across revenue, data, security, and operations.
-          </p>
-        </div>
-      </section>
-
-      {/* Stats / Highlights (Sparksoft shows staff/locations counters) */}
-      <section className="section" style={{background:'#f8fafc'}}>
-        <div className="container grid grid-4">
-          {[
-            {h:'19+ yrs', t:'Federal delivery'},
-            {h:'99.9%', t:'Filing-season uptime'},
-            {h:'AWS', t:'EKS • MSK • DynamoDB'},
-            {h:'FISMA/NIST', t:'GAO & TIGTA support'},
-          ].map(x => (
-            <div key={x.h} className="card">
-              <div className="card-body" style={{textAlign:'center'}}>
-                <div style={{fontSize:28, fontWeight:700}}>{x.h}</div>
-                <div className="text-muted" style={{marginTop:4}}>{x.t}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Values / Mission (Sparksoft features mission/values sections) */}
+      {/* Our Mission */}
       <section className="section">
         <div className="container">
-          <h2 style={{fontSize:28, fontWeight:700}}>Our values</h2>
+          <div className="content-narrow">
+            <h2 style={{fontSize:28, fontWeight:700}}>Our Mission</h2>
+            <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
+              To empower agencies and their partners to achieve secure, efficient, and mission-driven outcomes 
+              through modern IT solutions, data-driven insights, and reliable infrastructure services.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
+      <section className="section">
+        <div className="container">
+          <div className="content-narrow">
+            <h2 style={{fontSize:28, fontWeight:700}}>Our Values</h2>
+          </div>
           <div className="grid grid-3" style={{marginTop:'1rem'}}>
             {[
-              {t:'Outcome-first', d:'We ship production outcomes that stand up to audits and scale.'},
-              {t:'Security by design', d:'Guardrails, least privilege, automated checks from day one.'},
-              {t:'Pragmatic modernization', d:'Strangler patterns, event-driven designs, measurable ROI.'},
+              {t:'Mission-Focused', d:'We align every solution with our clients’ mission and public service goals.'},
+              {t:'Integrity & Accountability', d:'We act with transparency and deliver on our commitments.'},
+              {t:'Security & Compliance', d:'We protect data and meet rigorous federal standards.'},
+              {t:'Innovation & Collaboration', d:'We use modern technology and work closely with clients to achieve practical, scalable results.'},
             ].map(v => (
               <div key={v.t} className="card">
                 <div className="card-body">
@@ -69,8 +63,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership grid (Sparksoft has a leadership section) */}
-      <section className="section" style={{background:'#f8fafc'}}>
+      {/* Leadership */}
+      <section className="section band">
         <div className="container">
           <h2 style={{fontSize:28, fontWeight:700}}>Leadership</h2>
           <div className="grid grid-3" style={{marginTop:'1rem'}}>
@@ -93,7 +87,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Certifications / Partners (Sparksoft lists certs & vehicles) */}
+      {/* Certifications & Partners */}
       <section className="section">
         <div className="container">
           <h2 style={{fontSize:28, fontWeight:700}}>Certifications & Partners</h2>
@@ -115,14 +109,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Call to Action (Sparksoft ends with CTAs to contact/careers) */}
-      <section className="section" style={{background:'#f8fafc'}}>
+      {/* CTA */}
+      <section className="section band">
         <div className="container" style={{display:'flex', gap:'0.75rem', flexWrap:'wrap'}}>
           <Link href="/contact" className="btn btn-primary">Talk to us</Link>
           <Link href="/careers" className="btn">Careers</Link>
         </div>
       </section>
-
     </main>
   );
 }
