@@ -63,6 +63,67 @@ export default function AboutPage() {
         </div>
       </section>
 
+{/* Certifications & Partners */}
+<section className="section highlight">
+  <div className="container">
+    <div className="content-narrow">
+      <h2 style={{ fontSize: 28, fontWeight: 700 }}>Certifications &amp; Partners</h2>
+      <p className="text-muted" style={{ fontSize: 16, marginTop: '0.5rem' }}>
+        Our industry certifications and trusted partners enable us to deliver secure,
+        compliant, and innovative solutions.
+      </p>
+    </div>
+
+    <div className="grid grid-3" style={{ marginTop: '1rem' }}>
+      {[
+        {
+          t: 'Cloud Partners',
+          d: 'AWS, Microsoft Azure, Google Cloud'
+        },
+        {
+          t: 'Technology & Infrastructure',
+          d: 'Cisco, Dell Technologies, VMware'
+        },
+        {
+          t: 'Certifications (In-Progress)',
+          d: 'WOSB, EDWOSB, 8(a) Small Business, CMMI L3, ISO 9001, ISO 27001'
+        }
+      ].map((v) => (
+        <div key={v.t} className="card">
+          <div className="card-body">
+            <div style={{ fontWeight: 600 }}>{v.t}</div>
+            <p className="text-muted" style={{ marginTop: 6 }}>{v.d}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+      {/*
+      <section className="section">
+        <div className="container">
+          <h2 style={{fontSize:28, fontWeight:700}}>Certifications & Partners</h2>
+          <div className="logo-strip" style={{marginTop:'1rem'}}>
+            {[
+              {src:'/images/logo-sam.png', alt:'SAM.gov'},
+              {src:'/images/logo-wosb.png', alt:'WOSB/EDWOSB'},
+              {src:'/images/logo-aws.png', alt:'AWS Partner'},
+              {src:'/images/logo-cage.png', alt:'CAGE'},
+            ].map((l) => (
+              <div key={l.alt} className="logo-cell">
+                <Image src={l.src} alt={l.alt} fill />
+              </div>
+            ))}
+          </div>
+          <p className="text-muted" style={{marginTop:8, fontSize:12}}>
+            Replace with your actual IDs/partners only. Don’t use marks you’re not authorized to display.
+          </p>
+        </div>
+      </section>
+      */}
+
       {/* Leadership */}
       <section className="section band">
         <div className="container">
@@ -87,27 +148,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Certifications & Partners */}
-      <section className="section">
-        <div className="container">
-          <h2 style={{fontSize:28, fontWeight:700}}>Certifications & Partners</h2>
-          <div className="logo-strip" style={{marginTop:'1rem'}}>
-            {[
-              {src:'/images/logo-sam.png', alt:'SAM.gov'},
-              {src:'/images/logo-wosb.png', alt:'WOSB/EDWOSB'},
-              {src:'/images/logo-aws.png', alt:'AWS Partner'},
-              {src:'/images/logo-cage.png', alt:'CAGE'},
-            ].map((l) => (
-              <div key={l.alt} className="logo-cell">
-                <Image src={l.src} alt={l.alt} fill />
-              </div>
-            ))}
-          </div>
-          <p className="text-muted" style={{marginTop:8, fontSize:12}}>
-            Replace with your actual IDs/partners only. Don’t use marks you’re not authorized to display.
-          </p>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="section band">
