@@ -1,51 +1,130 @@
 /* ---------- app/careers/CareersPage.module.css ----------
 Create this file next to page.tsx and paste everything below. */
 
-
 .root {
---ink: #0f172a;
---muted: #475569;
---brand: #4f46e5;
---brand-dk: #4338ca;
---line: #e2e8f0;
---bg0: #f8fafc;
-min-height: 100vh;
-background: linear-gradient(var(--bg0), #ffffff);
-color: var(--ink);
+  /* Local theme tokens (scoped to .root subtree) */
+  --ink: #0f172a;
+  --muted: #475569;
+  --brand: #4f46e5;
+  --brand-dk: #4338ca;
+  --line: #e2e8f0;
+  --bg0: #f8fafc;
+
+  min-height: 100vh;
+  background: linear-gradient(var(--bg0), #ffffff);
+  color: var(--ink);
 }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .center { text-align: center; }
-.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--brand); margin: 0; }
-.headline { margin: 20px 0 50x; font-size: clamp(28px,4vw,44px); line-height: 1.15; font-weight: 800; }
-.heroTextBlock { 
-    max-width: 750px;
-  margin: 0 auto;          /* centers it */
-  display: grid;
-  gap: 2rem;               /* vertical space between paragraphs */
-  margin-top: 2rem;        /* space above the block (below the headline) */
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 600;
+  color: var(--brand);
+  margin: 0;
 }
+
+.headline {
+  margin: 20px 0 50px;            /* fixed: 50x -> 50px */
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
 .hero { padding: 56px 0 64px; }
-.lede { max-width: 860px; margin: 10px auto 0; font-size: 18px; line-height: 1.6; color: #334155; }
-.ctaRow { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
-.btn { display: inline-block; padding: 12px 20px; border-radius: 14px; font-weight: 600; text-decoration: none; transition: box-shadow .2s, transform .02s; }
+
+.heroTextBlock {
+  max-width: 750px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);   /* a bit more breathing room */
+  margin-top: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+.lede {
+  max-width: 860px;
+  margin: 10px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: box-shadow .2s, transform .02s;
+  border: 1px solid transparent;
+}
+
 .btn:active { transform: translateY(1px); }
-.btnPrimary { background: var(--brand); color: #fff; box-shadow: 0 10px 18px rgba(79,70,229,.18); border: 1px solid rgba(79,70,229,.8); }
-.btnPrimary:hover { box-shadow: 0 14px 22px rgba(79,70,229,.24); background: var(--brand-dk); }
-.btnGhost { background: #fff; color: #1f2937; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(15,23,42,.06); }
+
+.btnPrimary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(79,70,229,.18);
+  border: 1px solid rgba(79,70,229,.8);
+}
+.btnPrimary:hover {
+  box-shadow: 0 14px 22px rgba(79,70,229,.24);
+  background: var(--brand-dk);
+}
+
+.btnGhost {
+  background: #fff;
+  color: #1f2937;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15,23,42,.06);
+}
 .btnGhost:hover { background: var(--bg0); }
 
+/* Accessible focus */
+.btn:focus-visible,
+.btnPrimary:focus-visible,
+.btnGhost:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
 
+/* Sections & cards */
 .section { padding: 0 0 72px; }
 .sectionTitle { font-size: clamp(22px,3vw,32px); font-weight: 800; margin: 0 0 18px; }
-.cardGrid { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; padding: 0; margin: 18px 0 0; }
-.card { border: 1px solid var(--line); border-radius: 18px; background: #fff; padding: 20px; box-shadow: 0 6px 18px rgba(2,6,23,.05); }
+
+.cardGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  padding: 0;
+  margin: 18px 0 0;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(2,6,23,.05);
+}
+
 .cardTitle { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
 .cardBody { margin: 0; color: var(--muted); line-height: 1.6; }
 .muted { color: #64748b; }
 
-
+/* Responsive tweaks */
 @media (min-width: 768px) {
-.hero { padding: 64px 0 72px; }
-.section { padding-bottom: 84px; }
+  .hero { padding: 64px 0 72px; }
+  .section { padding-bottom: 84px; }
 }

@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <main>
-      {/* About Us */}
+      {/* Our Journey Forward */}
       <section className="section band">
         <div className="container">
           <div className="content-narrow">
-            <h1 style={{fontSize:'clamp(28px,4vw,44px)', fontWeight:700}}>About Us</h1>
+            <h1 style={{fontSize:'clamp(28px,4vw,44px)', fontWeight:700}}>Our Journey Forward</h1>
             <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
               <strong>Cloud Tek Computing LLC</strong> is a Virginia-based, Woman-Owned Small Business (WOSB) dedicated 
               to helping U.S. federal agencies and mission-driven organizations modernize their IT 
@@ -39,11 +39,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Values */}
+      {/* Our Commitment */}
       <section className="section">
         <div className="container">
           <div className="content-narrow">
-            <h2 style={{fontSize:28, fontWeight:700}}>Our Values</h2>
+            <h2 style={{fontSize:28, fontWeight:700}}>Our Commitment</h2>
           </div>
           <div className="grid grid-3" style={{marginTop:'1rem'}}>
             {[
@@ -86,7 +86,7 @@ export default function AboutPage() {
         },
         {
           t: 'Certifications (In-Progress)',
-          d: 'WOSB, EDWOSB, 8(a) Small Business, CMMI L3, ISO 9001, ISO 27001'
+          d: 'We’re pursuing new certifications... '
         }
       ].map((v) => (
         <div key={v.t} className="card">
@@ -99,7 +99,6 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
-
 
       {/*
       <section className="section">
@@ -124,15 +123,18 @@ export default function AboutPage() {
       </section>
       */}
 
-      {/* Leadership */}
+      {/* Meet Our Experts */}
       <section className="section band">
         <div className="container">
-          <h2 style={{fontSize:28, fontWeight:700}}>Leadership</h2>
+          <h2 style={{fontSize:28, fontWeight:700}}>Meet Our Experts</h2>
+          <p className="text-muted" style={{ fontSize: 16, marginTop: '0.5rem' }}>
+        Our skilled consultants are committed to achieving client success.
+      </p>
           <div className="grid grid-3" style={{marginTop:'1rem'}}>
             {[
-              {name:'Your Name', role:'Founder & CEO', img:'/images/leader-1.jpg'},
-              {name:'Exec Two', role:'Head of Delivery', img:'/images/leader-2.jpg'},
-              {name:'Exec Three', role:'Chief Architect', img:'/images/leader-3.jpg'},
+              {name:'<Name>', role:'Chief Architect', img:'/images/leader-1.jpg'},
+              {name:'<Name>', role:'Head of Cyber Security', img:'/images/leader-2.jpg'},
+              {name:'<Name>', role:'Cloud Architect', img:'/images/leader-3.jpg'},
             ].map(p => (
               <article key={p.name} className="card" style={{overflow:'hidden'}}>
                 <div style={{position:'relative', height:220}}>

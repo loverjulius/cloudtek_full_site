@@ -70,3 +70,11 @@ h1,h2,h3{color:#0f172a}
   .mobile-menu{display:none !important;}
 }
 
+/* Buttons already exist; ensure primary matches the orange accent */
+.btn-primary{ background: var(--accent,#f97316); color:#fff; border-color:var(--accent,#f97316); }
+.btn-primary:hover{ background: var(--accent-dark,#ea580c); }
+
+
+/* Optional: nav sticky look like the screenshot */
+.nav{ position:sticky; top:0; backdrop-filter:saturate(1.8) blur(6px); background:rgba(255,255,255,.8); border-bottom:1px solid #f1f5f9; z-index:50; }
+.nav-inner{ height:64px; display:flex; align-items:center; justify-content:space-between; }
