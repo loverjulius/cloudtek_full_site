@@ -10,7 +10,7 @@ function Hero() {
       <div className="container" style={{position:'relative'}}>
         <div className="grid grid-2" style={{alignItems:'center',gap:'2rem'}}>
           <div>
-            <span className="badge"><BadgeCheck size={16}/> Virginia-based, Woman-Owned Small Business</span>
+            <span className="badge"><BadgeCheck size={16}/> Virginia-based, Woman Operated Small Business</span>
             <h1 style={{marginTop:'0.75rem',fontSize:'clamp(28px,4vw,44px)',fontWeight:700}}>Modernize Critical Systems. Deliver Mission Results.</h1>
             <p className="text-muted" style={{marginTop:'0.75rem',fontSize:'18px',lineHeight:1.6}}>
               Cloud Tek Computing helps U.S. federal programs, especially revenue and public-facing missions—

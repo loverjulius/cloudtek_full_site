@@ -10,7 +10,7 @@ export default function AboutPage() {
           <div className="content-narrow">
             <h1 style={{fontSize:'clamp(28px,4vw,44px)', fontWeight:700}}>Our Journey Forward</h1>
             <p className="text-muted" style={{fontSize:18, lineHeight:1.6}}>
-              <strong>Cloud Tek Computing LLC</strong> is a Virginia-based, Woman-Owned Small Business (WOSB) dedicated 
+              <strong>Cloud Tek Computing LLC</strong> is a Virginia-based, Woman Operated Small Business dedicated 
               to helping U.S. federal agencies and mission-driven organizations modernize their IT 
               environments and deliver measurable results.
             </p>
