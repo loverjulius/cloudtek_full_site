@@ -23,13 +23,16 @@ function Hero() {
               
               <Link href="/services" className="btn btn-primary">Explore services</Link>
             </div>
-            <ul style={{display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',gap:'0.5rem',marginTop:'1rem',fontSize:'14px'}} className="text-muted">
+
+            {/*<ul style={{display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',gap:'0.5rem',marginTop:'1rem',fontSize:'14px'}} className="text-muted">
               {["Mainframe → Java on AWS EKS","Event-Driven (Kafka/MSK)","MongoDB & DynamoDB"].map(t => (
                 <li key={t} style={{display:'flex',alignItems:'center',gap:'0.4rem'}}><Check size={16}/> {t}</li>
               ))}
             </ul>
+            */}
           </div>
-          <div>
+          
+          {/*<div>
             <div className="card">
               <div className="card-header" style={{display:'flex',alignItems:'center',gap:'0.5rem'}}><Shield size={18}/> Mission-critical, audit-ready delivery</div>
               <div className="card-body" style={{display:'grid',gridTemplateColumns:'repeat(2,minmax(0,1fr))',gap:'0.75rem',fontSize:'14px'}}>
@@ -51,7 +54,8 @@ function Hero() {
           </div>
         </div>
         <div className="logo-strip" style={{marginTop:'1.25rem'}}>
-          {[
+          */}
+          {/*[
             {src:'/images/logo-sam.png',alt:'SAM.gov'},
             {src:'/images/logo-cage.png',alt:'CAGE'},
             {src:'/images/logo-wosb.png',alt:'WOSB/EDWOSB'},
@@ -60,7 +64,8 @@ function Hero() {
             <div key={l.alt} className="logo-cell">
               <Image src={l.src} alt={l.alt} fill />
             </div>
-          ))}
+              ))*/}
+          
         </div>
       </div>
     </section>
