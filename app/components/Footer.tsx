@@ -8,7 +8,7 @@ export default function Footer() {
           <div style={{height:32,width:32,borderRadius:12,background:'linear-gradient(135deg,#38bdf8,#6366f1)'}}/>
           <span style={{fontWeight:600}}>Cloud Tek Computing LLC</span>
         </div>
-        <div className="text-muted" style={{fontSize:'14px'}}>© {new Date().getFullYear()} Cloud Tek Computing LLC. All rights reserved.</div>
+        <div className="text-muted" style={{fontSize:'14px'}}>© 2023 Cloud Tek Computing LLC. All rights reserved.</div>
       </div>
     </footer>
   );

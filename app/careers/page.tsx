@@ -38,7 +38,7 @@ export default function CareersPage() {
               >
                 Apply Now
               </a>
-              <a className={`${styles.btn} ${styles.btnGhost}`} href="#benefits">
+              <a className={`${styles.btn} ${styles.btnPrimary}`} href="#benefits">
                 Explore Benefits
               </a>
             </div>

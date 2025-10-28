@@ -155,7 +155,7 @@ export default function AboutPage() {
       <section className="section band">
         <div className="container" style={{display:'flex', gap:'0.75rem', flexWrap:'wrap'}}>
           <Link href="/contact" className="btn btn-primary">Talk to us</Link>
-          <Link href="/careers" className="btn">Careers</Link>
+          <Link href="/careers" className="btn btn-primary">Careers</Link>
         </div>
       </section>
     </main>
