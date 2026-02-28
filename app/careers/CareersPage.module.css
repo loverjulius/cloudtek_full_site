@@ -20,8 +20,8 @@ Create this file next to page.tsx and paste everything below. */
 
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: .08em;
-  font-weight: 600;
+  letter-spacing: .10em;
+  font-weight: 1000;
   color: var(--brand);
   margin: 0;
 }
