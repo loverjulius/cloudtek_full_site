@@ -85,8 +85,14 @@ export default function AboutPage() {
           d: 'Cisco, Dell Technologies, VMware'
         },
         {
-          t: 'Certifications (In-Progress)',
-          d: 'We’re pursuing new certifications... '
+          t: 'Certifications',
+            d: (
+    <ul style={{ margin: 0, paddingLeft: '1.2rem', lineHeight: 1.6 }}>
+      <li>SWaM Certified (Virginia: Small, Women-owned, and Minority-owned)</li>
+      <li>Active in state and federal procurement systems</li>
+      <li>Expanding certifications to support federal and state contracting</li>
+    </ul>
+            )
         }
       ].map((v) => (
         <div key={v.t} className="card">
@@ -123,7 +129,7 @@ export default function AboutPage() {
       </section>
       */}
 
-      {/* Meet Our Experts */}
+      {/* Meet Our Experts 
       <section className="section band">
         <div className="container">
           <h2 style={{fontSize:28, fontWeight:700}}>Meet Our Experts</h2>
@@ -149,6 +155,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
 
       {/* CTA */}
