@@ -42,10 +42,14 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.bar}>
-        
-        <Link href="/" className={styles.logo}>
-                  Cloud Tek Computing
-        </Link>
+       <Link href="/" className={styles.logo}>
+  <img
+    src="/images/logo-main.png"
+    /*alt="Cloud Tek Computing"*/
+    className={styles.logoImage}
+  />
+</Link>
+          
 
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Primary">

@@ -1,14 +1,19 @@
-'use client';
+"use client";
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container" style={{display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:'1rem'}}>
-        <div style={{display:'flex',alignItems:'center',gap:8}}>
-          <div style={{height:32,width:32,borderRadius:12,background:'linear-gradient(135deg,#38bdf8,#6366f1)'}}/>
-          <span style={{fontWeight:600}}>Cloud Tek Computing LLC</span>
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ fontSize: "14px", color: "#ffffff" }}>
+          © {new Date().getFullYear()} Cloud Tek Computing LLC. All rights reserved.
         </div>
-        <div className="text-muted" style={{fontSize:'14px'}}>© 2023 Cloud Tek Computing LLC. All rights reserved.</div>
       </div>
     </footer>
   );
