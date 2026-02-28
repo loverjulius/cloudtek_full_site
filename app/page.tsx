@@ -90,7 +90,7 @@ export default function Page() {
           </motion.span>
 
           <motion.h1 className={styles.headline} variants={fadeUp}>
-            Modernize Critical Systems. Deliver Mission Results.
+            Modernize with confidence.<br /> Deliver secure, compliant, mission-aligned IT solutions.
           </motion.h1>
           {/*
 
