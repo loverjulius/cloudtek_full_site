@@ -44,7 +44,7 @@ export default function Header() {
       <div className={styles.bar}>
        <Link href="/" className={styles.logo}>
   <img
-    src="/images/logo-main.png"
+    src="/images/Main Logo.png"
     /*alt="Cloud Tek Computing"*/
     className={styles.logoImage}
   />
