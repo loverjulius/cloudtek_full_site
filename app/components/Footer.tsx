@@ -12,7 +12,7 @@ export default function Footer() {
         }}
       >
         <div style={{ fontSize: "14px", color: "#ffffff" }}>
-          © {new Date().getFullYear()} Cloud Tek Computing LLC. All rights reserved.
+          © 2023 Cloud Tek Computing LLC. All Rights Reserved.
         </div>
       </div>
     </footer>
